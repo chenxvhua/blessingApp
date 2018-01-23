@@ -1,0 +1,20 @@
+<!-- <view  class="icon iconfont icon-xiaoniao"></view> -->
+
+<canvas canvas-id="myCanvas" class='main-canvas' wx:if="{{!isPreview}}"
+  disable-scroll="true"
+  bindtouchstart="start"
+  bindtouchmove="move"
+  bindtouchend="end"/>
+
+ <cover-view  class="icon iconfont dashboard {{dashboardBtnShow}}">
+  <cover-view  class='ope-btn'>
+        设置
+  </cover-view>
+  <cover-view bindtap="handleBtn" class='ope-btn'>
+        预览
+  </cover-view>
+</cover-view>
+
+
+
+

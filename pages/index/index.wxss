@@ -1,0 +1,25 @@
+.dashboard {
+  position: fixed;
+  font-size: 18px;
+  margin:0px;
+  top:0px;
+  right: 0px;
+  color:#CC9999;
+  text-align:right;
+  width: 100px;
+  height: 50px;
+}
+
+.ope-btn {
+   padding: 5px;
+   width: 40px;
+   float: left;
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+

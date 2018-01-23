@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/dog/dog",
+    "pages/preview/preiview",
+     "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "自定义图样",
+    "navigationBarTextStyle": "black"
+  }
+}
