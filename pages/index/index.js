@@ -21,6 +21,8 @@ Page({
     inputContent:"旺狗贺岁，欢乐祥瑞\n旺狗汪汪，事业兴旺\n旺狗打滚，财源滚滚\n旺狗高跳，吉星高照\n旺狗撒欢，如意平安",
     itemsIconType: [
       { label: '金元宝', value: 'vcoin' },
+      { label: '聚宝盆', value: 'jubaopan' },
+      { label: '财神', value: 'caishen' },
       { label: '单张人民币', value: 'singlermb' },
       { label: '一叠人民币', value: 'murmb' },
       { label: '一叠美元', value: 'dollar' },
@@ -37,6 +39,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+//dataUrl: 'http://www.99msg.com/mp3/shiji.mp3',
+//dataUrl: 'http://www.99msg.com/mp3/chunjie.mp3',
+
+    // wx.playBackgroundAudio({
+    //   dataUrl: 'http://www.99msg.com/mp3/chunjie.mp3',
+    //   success:function(res){
+    //     console.log("success:",JSON.stringify(res))
+    //   },
+    //   fail:function(res){
+    //     console.log("fail:", JSON.stringify(res))
+    //   },	
+    //   complete:function(res){
+    //     console.log("complete:", JSON.stringify(res))
+    //   }
+    // })
+
     var that=this
     funcCommon.setCommand() //设置命令
     wx.showLoading({

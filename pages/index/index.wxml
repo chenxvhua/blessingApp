@@ -1,3 +1,15 @@
+<view class='bg-left'>
+
+</view>
+
+<view class='bg-top'>
+
+</view>
+
+<view class='bg-right'>
+
+</view>
+
 <view class='container-loading' vx:if="{{!containerShow}}" catchtouchstart="start"
   catchtouchmove="move"
   catchtouchend="end">
@@ -6,7 +18,6 @@
 <view class='container {{containerShow}}' catchtouchstart="start"
   catchtouchmove="move"
   catchtouchend="end">
-
 <view wx:for="{{pathArr}}" catchtap="handleScaleItem" animation="{{item.animationData}}" class="icon iconfont img-width {{iconType}} {{itemHide}} item-size one" 
 style='font-size:{{item.fontSize}}px;top:{{item.top}}px;left:{{item.eqLeft}}px;margin-left:-{{item.boundWidth/2}}px'></view>
 
