@@ -1,20 +1,56 @@
-<!-- <view  class="icon iconfont icon-xiaoniao"></view> -->
+<view class='container-loading' vx:if="{{!containerShow}}" catchtouchstart="start"
+  catchtouchmove="move"
+  catchtouchend="end">
+</view>
 
-<canvas canvas-id="myCanvas" class='main-canvas' wx:if="{{!isPreview}}"
-  disable-scroll="true"
-  bindtouchstart="start"
-  bindtouchmove="move"
-  bindtouchend="end"/>
+<view class='container {{containerShow}}' catchtouchstart="start"
+  catchtouchmove="move"
+  catchtouchend="end">
 
- <cover-view  class="icon iconfont dashboard {{dashboardBtnShow}}">
-  <cover-view  class='ope-btn'>
-        设置
-  </cover-view>
-  <cover-view bindtap="handleBtn" class='ope-btn'>
-        预览
-  </cover-view>
-</cover-view>
+<view wx:for="{{pathArr}}" catchtap="handleScaleItem" animation="{{item.animationData}}" class="icon iconfont img-width {{iconType}} {{itemHide}} item-size one" 
+style='font-size:{{item.fontSize}}px;top:{{item.top}}px;left:{{item.eqLeft}}px;margin-left:-{{item.boundWidth/2}}px'></view>
 
+ <view wx:for="{{pathArr}}" catchtap="handleScaleItem" animation="{{item.animationData}}" class="icon iconfont img-width {{iconType}} {{itemHide}} item-size" 
+style='font-size:{{item.fontSize}}px;top:{{item.top}}px;left:{{item.eqLeft*2}}px;margin-left:-{{item.boundWidth/2}}px'></view>
+
+<view wx:for="{{pathArr}}" catchtap="handleScaleItem" animation="{{item.animationData}}" class="icon iconfont img-width {{iconType}} {{itemHide}} item-size" 
+style='font-size:{{item.fontSize}}px;top:{{item.top}}px;left:{{item.eqLeft*3}}px;margin-left:-{{item.boundWidth/2}}px'></view> 
+
+</view>
+
+
+<view class="bless-word" animation="{{blessWordanimationData}}"   wx:if="{{blessWordShow}}">
+   <view class="bless-title">{{inputTitle}}</view>
+   <view class="bless-item" wx:for="{{viewBlessItems}}">{{item}}</view>
+ 
+   <view class="bless-bottom" wx:if="{{blessWordBottomShow}}">
+      <button bindtap="setPlain" size='mini' class='btn' style='margin-right: 10rpx;' open-type="share">分享</button>
+      <button bindtap="setLoading" size="mini" class='btn' style='margin-left: 10rpx;' bindtap="handleSetting">去制作</button>
+   </view>  
+</view>
+
+<view class="setting-show"   wx:if="{{settingShow}}">
+   <view class="section">
+     <input placeholder="请输入标题" value="{{inputTitle}}" style='padding-left:20rpx;padding-right:20rpx;' class='txt' bindinput ="handleTitleInput" auto-focus/>
+   </view>
+   <view class="section">
+     <textarea value="{{inputContent}}" style="padding-left:{{isTextareaPadding ? '10rpx':'20rpx'}};padding-right:{{isTextareaPadding ? '10rpx':'20rpx'}};" bindinput="handleContentInput" placeholder="请输入祝福语" />
+   </view>
+
+  <view class="section">
+    <radio-group class="radio-group" bindchange="iconTypeChange">
+      <label class="radio" wx:for="{{itemsIconType}}">
+        <radio value="{{item.value}}" checked="{{item.value===iconType}}"/>{{item.label}}
+      </label>
+    </radio-group>
+  </view>
+
+
+   <view class="setting-bottom">
+     <button bindtap="setPlain" size='mini' class='btn' style='margin-right: 10rpx;' open-type="share">分享</button>
+      <button bindtap="setLoading" size="mini" class='btn' bindtap="handlePreview">预览</button>
+   </view>
+</view>
 
 
 

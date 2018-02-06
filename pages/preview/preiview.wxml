@@ -1,3 +1,0 @@
-<view class='main-canvas main-preview'>
-   <view wx:for="{{pathArr}}" animation="{{item.animationData}}" class="icon iconfont {{currentIcon}} p-fix"></view>
-</view>
