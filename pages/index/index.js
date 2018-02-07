@@ -20,18 +20,24 @@ Page({
     inputTitle:"祝狗年吉祥",
     inputContent:"旺狗贺岁，欢乐祥瑞\n旺狗汪汪，事业兴旺\n旺狗打滚，财源滚滚\n旺狗高跳，吉星高照\n旺狗撒欢，如意平安",
     itemsIconType: [
-      { label: '金元宝', value: 'vcoin' },
-      { label: '聚宝盆', value: 'jubaopan' },
-      { label: '财神', value: 'caishen' },
+      { label: '金元宝图一', value: 'vcoin' }, 
+      { label: '金元宝图二', value: 'vcoin2' },
+      { label: '金元宝图三', value: 'vcoin3' },
+      { label: '聚宝盆图一', value: 'jubaopan' },
+      { label: '聚宝盆图二', value: 'jubaopan2' },
       { label: '单张人民币', value: 'singlermb' },
       { label: '一叠人民币', value: 'murmb' },
+      { label: '财神图一', value: 'caishen' },
+      { label: '财神图二', value: 'caishen2' },
       { label: '一叠美元', value: 'dollar' },
       { label: '狗', value: 'dog' },
     ],
     itemsBgMusicType: [
       { label: '无', value: '' },
       { label: '市集', value: 'shiji.mp3' },
-      { label: '春节', value: 'chunjie.mp3' }
+      { label: '春节', value: 'chunjie3.mp3' },
+      { label: '快乐', value: 'happay.mp3' },
+      { label: '发财', value: 'facai.mp3' }
     ],
     blessItems: [],
     viewBlessItems:[],
