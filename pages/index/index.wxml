@@ -49,9 +49,20 @@ style='font-size:{{item.fontSize}}px;top:{{item.top}}px;left:{{item.eqLeft*3}}px
    </view>
 
   <view class="section">
+    <view class='setting-title'>图样</view>
     <radio-group class="radio-group" bindchange="iconTypeChange">
-      <label class="radio" wx:for="{{itemsIconType}}">
+      <label class="radio radio-item" wx:for="{{itemsIconType}}">
         <radio value="{{item.value}}" checked="{{item.value===iconType}}"/>{{item.label}}
+      </label>
+    </radio-group>
+  </view>
+
+
+    <view class="section">
+    <view class='setting-title'>背景音乐</view>
+    <radio-group class="radio-group" bindchange="bgMusicTypeChange">
+      <label class="radio radio-item" wx:for="{{itemsBgMusicType}}">
+        <radio value="{{item.value}}" checked="{{item.value===bgMusicType}}"/>{{item.label}}
       </label>
     </radio-group>
   </view>

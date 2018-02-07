@@ -28,9 +28,15 @@ Page({
       { label: '一叠美元', value: 'dollar' },
       { label: '狗', value: 'dog' },
     ],
+    itemsBgMusicType: [
+      { label: '无', value: '' },
+      { label: '市集', value: 'shiji.mp3' },
+      { label: '春节', value: 'chunjie.mp3' }
+    ],
     blessItems: [],
     viewBlessItems:[],
-    iconType:"dog",
+    iconType:"vcoin",
+    bgMusicType:"",
     itemHide:"",
     win: wx.getSystemInfoSync(),
   },
@@ -39,29 +45,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-//dataUrl: 'http://www.99msg.com/mp3/shiji.mp3',
-//dataUrl: 'http://www.99msg.com/mp3/chunjie.mp3',
-
-    // wx.playBackgroundAudio({
-    //   dataUrl: 'http://www.99msg.com/mp3/chunjie.mp3',
-    //   success:function(res){
-    //     console.log("success:",JSON.stringify(res))
-    //   },
-    //   fail:function(res){
-    //     console.log("fail:", JSON.stringify(res))
-    //   },	
-    //   complete:function(res){
-    //     console.log("complete:", JSON.stringify(res))
-    //   }
-    // })
-
     var that=this
     funcCommon.setCommand() //设置命令
     wx.showLoading({
       title:"初始化..."
     });
     console.log("options:", JSON.stringify(options));
-    if (options.inputTitle || options.inputContent){
+    if (options.inputTitle || options.inputContent || options.bgMusicType){
       var tempBlessItems = options.inputContent ? options.inputContent.split("\n") : that.data.blessItems
       var useBlessItems = tempBlessItems.filter(function (value) {
         return !!value
@@ -69,6 +59,7 @@ Page({
       that.setData({
         "inputTitle": options.inputTitle ? options.inputTitle : that.data.inputTitle, 
         "inputContent": options.inputContent ? options.inputContent : that.data.inputContent,
+        "bgMusicType": options.bgMusicType ? options.bgMusicType : that.data.bgMusicType,
          "blessItems": useBlessItems,
          viewBlessItems: [],
          "iconType": options.iconType ? options.iconType : that.data.options.iconType 
@@ -109,12 +100,32 @@ Page({
       }
       that.setData({ pathArr: tempPathArr, "itemHide": "", "isTextareaPadding": tempIsTextareaPadding }, function () {
         that.handleQuene(0)
+        that.funcPlayBgMusic()
         setTimeout(function () {
           that.setData({ blessWordShow: true }, function () {
             that.handleBlessItems()
           })
         }, 5000)
       })
+  },
+  funcPlayBgMusic(){
+    //dataUrl: 'http://www.99msg.com/mp3/shiji.mp3',
+    //dataUrl: 'http://www.99msg.com/mp3/chunjie.mp3',
+    if (this.data.bgMusicType){
+      console.log("bgMusicType:", this.data.bgMusicType)
+      wx.playBackgroundAudio({
+        dataUrl: 'http://www.99msg.com/mp3/' + this.data.bgMusicType,
+        success: function (res) {
+          console.log("success:", JSON.stringify(res))
+        },
+        fail: function (res) {
+          console.log("fail:", JSON.stringify(res))
+        },
+        complete: function (res) {
+          console.log("complete:", JSON.stringify(res))
+        }
+      })
+    }
   },
   handleBlessItems(){
     var that=this
@@ -194,8 +205,9 @@ Page({
       gTotal++
       console.log("gTotal:", gTotal)
       //25 理想值
-      if (gTotal > 25) {
+      if (gTotal > 100) {
         that.handleItemHide()
+        wx.stopBackgroundAudio()
         return
       }
       var tempPathArr = that.data.pathArr.map(function (item) {
@@ -251,6 +263,7 @@ Page({
     })
 
     that.setData({ "blessItems": useBlessItems, viewBlessItems: [], "settingShow": false, "containerShow": "container-show", "pathArr": []},          function(){
+        wx.stopBackgroundAudio()
         that.resetStart()
     })
   },
@@ -265,6 +278,9 @@ Page({
   iconTypeChange(e){
     this.setData({ "iconType": e.detail.value })
   },
+  bgMusicTypeChange(e){
+    this.setData({ "bgMusicType": e.detail.value })
+  },
 
   /**
    * 用户点击右上角分享
@@ -274,7 +290,8 @@ Page({
       title: this.data.inputTitle,
       path: "/pages/index/index?inputTitle=" + this.data.inputTitle+
        "&inputContent=" + this.data.inputContent+
-        "&iconType=" + this.data.iconType,
+        "&iconType=" + this.data.iconType+
+      "&bgMusicType=" + this.data.bgMusicType,
       success: function (res) {
         console.log("成功:", JSON.stringify(res));
       },

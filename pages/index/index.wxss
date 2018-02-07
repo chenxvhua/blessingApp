@@ -19,6 +19,12 @@
   to {   transform: translateX(0%);}
 }
 
+@keyframes bg-animation {
+        from {transform:translate(0, 0);}
+		    65% {transform:translate(5px, 0);}
+		    to {transform: translate(0, 0);    }    
+}
+
 
 
 /* pages/dog/dog.wxss */
@@ -38,31 +44,35 @@
 
 .bg-left {
     background: url("http://99msg.com/mini/bianpao-min.png") no-repeat left top;
-    background-size:150rpx; 
+    background-size:130rpx; 
     position: fixed;
     left: 0px;
     height: 300px;
-    width: 100%;
+    width: 130rpx;
     z-index: 1;
+    animation: 3s bg-animation infinite ease-in-out;
 }
 .bg-top {
     background: url("http://99msg.com/mini/denglong-min.png") no-repeat center top;
-    background-size:500rpx; 
+    background-size:440rpx; 
     position: fixed;
     top: 0px;
-    height: 300px;
+    height:220rpx;
     width: 100%;
     z-index: 1;
+    animation: 5s bg-animation infinite ease-in-out;
 }
 .bg-right {
     background: url("http://99msg.com/mini/bianpao-min.png") no-repeat right top;
-    background-size:150rpx; 
+    background-size:130rpx; 
     position: fixed;
     right: 0px;
     height: 300px;
-    width: 100%;
+    width: 130rpx;
     z-index: 1;
+    animation: 4s bg-animation infinite ease-in-out;
 }
+
 
 .container-loading {
     position: fixed;
@@ -163,10 +173,26 @@
   margin-bottom: 20rpx;
   border:1px solid #ccc; 
   border-radius:5px; 
+  padding-left: 50rpx;
 }
 .txt {
    padding: 0px;
    box-sizing: border-box;
+}
+
+.setting-title {
+  border-bottom: 1px dotted #ccc;
+  font-size: 16px;
+  width: 50%;
+}
+
+.radio-group{
+  overflow: hidden;
+}
+
+.radio-item {
+  float: left;
+  padding-right: 5px;
 }
 
 /*img start*/
