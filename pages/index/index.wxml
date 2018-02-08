@@ -42,10 +42,10 @@ style='font-size:{{item.fontSize}}px;top:{{item.top}}px;left:{{item.eqLeft*3}}px
 
 <view class="setting-show"   wx:if="{{settingShow}}">
    <view class="section">
-     <input placeholder="请输入标题" value="{{inputTitle}}" style='padding-left:20rpx;padding-right:20rpx;' class='txt' bindinput ="handleTitleInput" auto-focus/>
+     <input placeholder="请输入标题" value="{{initInputTitle}}" style='padding-left:20rpx;padding-right:20rpx;' class='txt' bindinput ="handleTitleInput" auto-focus/>
    </view>
    <view class="section">
-     <textarea value="{{inputContent}}" style="padding-left:{{isTextareaPadding ? '10rpx':'20rpx'}};padding-right:{{isTextareaPadding ? '10rpx':'20rpx'}};" bindinput="handleContentInput" placeholder="请输入祝福语" />
+     <textarea value="{{initInputContent}}" style="padding-left:{{isTextareaPadding ? '10rpx':'20rpx'}};padding-right:{{isTextareaPadding ? '10rpx':'20rpx'}};" bindinput="handleContentInput" placeholder="请输入祝福语" />
    </view>
 
   <view class="section">

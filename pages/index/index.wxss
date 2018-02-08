@@ -44,11 +44,11 @@
 
 .bg-left {
     background: url("http://99msg.com/mini/bianpao-min.png") no-repeat left top;
-    background-size:130rpx; 
+    background-size:120rpx; 
     position: fixed;
     left: 0px;
     height: 300px;
-    width: 130rpx;
+    width: 120rpx;
     z-index: 1;
     animation: 3s bg-animation infinite ease-in-out;
 }
@@ -64,11 +64,11 @@
 }
 .bg-right {
     background: url("http://99msg.com/mini/bianpao-min.png") no-repeat right top;
-    background-size:130rpx; 
+    background-size:120rpx; 
     position: fixed;
     right: 0px;
     height: 300px;
-    width: 130rpx;
+    width: 120rpx;
     z-index: 1;
     animation: 4s bg-animation infinite ease-in-out;
 }
@@ -109,7 +109,7 @@
 
 
 .bless-word {
-  padding: 50rpx;
+  padding: 50rpx 110rpx;
   opacity: 0.8;
   background: #FF4242; 
   position:absolute;

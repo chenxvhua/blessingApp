@@ -18,7 +18,9 @@ Page({
     isTextareaPadding:false,//textarea兼容内边距
     containerShow:"",
     inputTitle:"祝狗年吉祥",
-    inputContent:"旺狗贺岁，欢乐祥瑞\n旺狗汪汪，事业兴旺\n旺狗打滚，财源滚滚\n旺狗高跳，吉星高照\n旺狗撒欢，如意平安",
+    inputContent:"旺狗贺岁，欢乐祥瑞旺狗贺岁\n旺狗汪汪，事业兴旺\n旺狗打滚，财源滚滚\n旺狗高跳，吉星高照\n旺狗撒欢，如意平安",
+    initInputTitle:"祝狗年吉祥",
+    initInputContent:"旺狗贺岁，欢乐祥瑞旺狗贺岁\n旺狗汪汪，事业兴旺\n旺狗打滚，财源滚滚\n旺狗高跳，吉星高照\n旺狗撒欢，如意平安",
     itemsIconType: [
       { label: '金元宝图一', value: 'vcoin' }, 
       { label: '金元宝图二', value: 'vcoin2' },
@@ -66,6 +68,8 @@ Page({
         "inputTitle": options.inputTitle ? options.inputTitle : that.data.inputTitle, 
         "inputContent": options.inputContent ? options.inputContent : that.data.inputContent,
         "bgMusicType": options.bgMusicType ? options.bgMusicType : that.data.bgMusicType,
+        "initInputTitle": options.inputTitle ? options.inputTitle : that.data.inputTitle, 
+         "initInputContent": options.inputContent ? options.inputContent : that.data.inputContent,
          "blessItems": useBlessItems,
          viewBlessItems: [],
          "iconType": options.iconType ? options.iconType : that.data.options.iconType 
@@ -267,11 +271,19 @@ Page({
     var useBlessItems = tempBlessItems.filter(function(value){
       return !!value
     })
-
-    that.setData({ "blessItems": useBlessItems, viewBlessItems: [], "settingShow": false, "containerShow": "container-show", "pathArr": []},          function(){
+    that.setData({ 
+        "blessItems": useBlessItems, 
+        "initInputTitle": that.data.inputTitle,
+        "initInputContent":that.data.inputContent,
+        "viewBlessItems": [], 
+        "settingShow": false,
+        "containerShow": "container-show", 
+        "pathArr": []
+        },
+       function(){
         wx.stopBackgroundAudio()
         that.resetStart()
-    })
+       })
   },
   handleTitleInput(e){
     console.log("inputTitle:", e.detail.value)
