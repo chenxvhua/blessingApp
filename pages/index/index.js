@@ -15,12 +15,12 @@ Page({
     blessWordShow:false,
     blessWordBottomShow:false,
     settingShow:false,
-    isTextareaPadding:false,//textarea兼容内边距
+    isTextareaPadding:false,//textarea兼容内边距22
     containerShow:"",
     inputTitle:"祝狗年吉祥",
-    inputContent:"旺狗贺岁，欢乐祥瑞旺狗贺岁\n旺狗汪汪，事业兴旺\n旺狗打滚，财源滚滚\n旺狗高跳，吉星高照\n旺狗撒欢，如意平安",
+    inputContent:"旺狗贺岁，欢乐祥瑞\n旺狗汪汪，事业兴旺\n旺狗打滚，财源滚滚\n旺狗高跳，吉星高照\n旺狗撒欢，如意平安",
     initInputTitle:"祝狗年吉祥",
-    initInputContent:"旺狗贺岁，欢乐祥瑞旺狗贺岁\n旺狗汪汪，事业兴旺\n旺狗打滚，财源滚滚\n旺狗高跳，吉星高照\n旺狗撒欢，如意平安",
+    initInputContent:"旺狗贺岁，欢乐祥瑞\n旺狗汪汪，事业兴旺\n旺狗打滚，财源滚滚\n旺狗高跳，吉星高照\n旺狗撒欢，如意平安",
     itemsIconType: [
       { label: '金元宝图一', value: 'vcoin' }, 
       { label: '金元宝图二', value: 'vcoin2' },
